@@ -15,14 +15,14 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
             email,
             text,
         };
-        
+
         socket.emit("client_first_acess", params, (call, err) => { // emitindo evento criando em client.ts
             if (err) {
                 console.err(err);
             } else {
                 console.log(call);
             }
-        });   
+        });
     });
 
     socket.on("client_list_all_messages", messages => {
@@ -30,7 +30,7 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
         let template_admin = document.getElementById("admin-template").innerHTML;
 
         messages.forEach(message => {
-            if(message.admin_id === null) { // msg do user
+            if (message.admin_id === null) { // msg do user
                 const rendered = Mustache.render(template_client, {
                     message: message.text,
                     email
@@ -46,4 +46,9 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
             }
         })
     });
+
+    socket.on("admin_send_to_client", message => {
+        console.log(message);
+    });
 });
+
