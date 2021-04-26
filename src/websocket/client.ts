@@ -54,6 +54,9 @@ io.on("connect", async (socket) => {
     const allMessages = await messagesService.listByUser(user_id); //listando tods msgs do user
 
     socket.emit("client_list_all_messages", allMessages) //criando evento que lista as mgs
+
+    const allUsers = await connectionsService.findAllWithoutAdmin();
+    io.emit("admin_list_all_users", allUsers);
   });
 
 
