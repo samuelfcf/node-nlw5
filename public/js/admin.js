@@ -33,7 +33,9 @@ function call(id) {
 
     const params = {
         user_id: connection.user_id
-    }
+    };
+
+    socket.emit("admin_user_in_support", params);
 
     // evento para ter acesso as msgs do usário
     socket.emit("admin_list_messages_by_user", params, messages => {

@@ -37,4 +37,9 @@ io.on("connect", async (socket) => {
             socket_id: socket.id,
         });
     });
+
+    socket.on("admin_user_in_support", async(params) => {
+        const { user_id } = params;
+        await connectionsService.updateAdminID(user_id, socket.id);
+    })
 });
