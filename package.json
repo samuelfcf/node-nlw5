@@ -16,7 +16,8 @@
     "socket.io-client": "^4.0.1",
     "sqlite3": "^5.0.2",
     "typeorm": "^0.2.32",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
